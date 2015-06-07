@@ -1,0 +1,19 @@
+nav li {
+    display: inline-block;
+}
+
+nav {
+    background-color: gray;
+}
+
+nav li a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+}
+
+seznam ul li {
+    position: absolute;
+    margin-left: 50%;
+    background-color: red;
+}
