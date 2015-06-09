@@ -32,9 +32,7 @@ if (isset($_POST['lokacija'])){
 
 
 
-if(!$napaka){
-$db->query("INSERT INTO videnja (lokacija, kdaj, izgled, dogajanje) VALUES ('$lokacija', '$cas', '$izgled', '$dogajanje')");
-}
+
     
     
     
@@ -44,7 +42,7 @@ $db->query("INSERT INTO videnja (lokacija, kdaj, izgled, dogajanje) VALUES ('$lo
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
-// Check if image file is a actual image or fake image
+
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
@@ -77,6 +75,12 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". ( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+        $id_slika = ($_FILES["fileToUpload"]["name"]);
+        if(!$napaka){
+$db->query("INSERT INTO videnja (lokacija, kdaj, izgled, dogajanje, id_slika) VALUES ('$lokacija', '$cas', '$izgled', '$dogajanje', '$id_slika')");
+}
+        
+        
     } else {
         echo "Sorry, there was an error uploading your file.";
     }

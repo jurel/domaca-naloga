@@ -16,7 +16,9 @@ $videnje = $db->get_row("SELECT * FROM videnja WHERE id = $id");
             <li><b>Kaj se je dogajalo?</b><br>
             <p><?php echo $videnje->dogajanje; ?></p></li>
             <li><b>Kontakt:</b><br>
-            <p><?php echo $videnje->kontakt; ?></p></li>
+            <p><?php echo $videnje->kontakt; ?></p></li><br>
+            <img src="uploads/<?php echo $videnje->id_slika; ?>" alt="slika">
+            
         </ul>
     </div>
     
